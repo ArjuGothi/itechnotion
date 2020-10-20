@@ -26,14 +26,10 @@ class UserWrapper extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     let update = {};
     switch (nextProps.demoAction.type) {
-      case "FACK_ACTION":
-        update.call = false;
-        break;
       case "GET_USERS_SUCCES":
         update.dataSource = nextProps.demoAction.data;
-        // nextProps.feckAction();
+        nextProps.feckAction();
         break;
-
       default:
     }
     return Object.keys(update).length === 0 ? null : update;
@@ -89,7 +85,7 @@ class UserWrapper extends Component {
 
   deleteItem = () => {
     const dataSource = [...this.state.dataSource];
-    let a = dataSource.findIndex(r => r.key === this.state.deleteToken);
+    let a = dataSource.findIndex(r => r.id === this.state.deleteToken);
     dataSource.splice(a, 1);
     this.setState({ dataSource, deleteModal: false });
   };
