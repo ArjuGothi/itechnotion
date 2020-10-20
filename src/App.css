@@ -1,0 +1,31 @@
+#root{
+  height: 100%;
+}
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background: #111;
+}
+.content {
+  width: calc(100% - 200px);
+  height: 100%;
+  overflow-y: scroll;
+}
+.navItem {
+  height: 35px;
+  padding: 5px 10px;
+  line-height: 35px;
+  font-size: 16px;
+  color: #fff;
+}
+.navItem:hover {
+  background-color: rgb(107 107 107 / 20%);
+  cursor: pointer;
+}
+.sidebar a {
+  text-decoration: none;
+}
+.navItemSelected {
+  background-color: rgb(107 107 107 / 50%);
+  color: #575797;
+}
