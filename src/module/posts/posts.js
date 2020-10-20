@@ -26,11 +26,7 @@ class PostsWapper extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     let update = {};
     switch (nextProps.demoAction.type) {
-      case "FACK_ACTION":
-        update.call = false;
-        break;
       case "GET_POST_SUCCESS":
-        console.log(nextProps);
         update.dataSource = nextProps.demoAction.data;
         nextProps.feckAction();
         break;
@@ -61,7 +57,7 @@ class PostsWapper extends Component {
   };
 
   handleCancel = () => {
-    this.setState({ visible: false });
+    this.setState({ visible: false, singleData:{} });
   };
 
   handleAdd = (type, data) => {
@@ -87,7 +83,7 @@ class PostsWapper extends Component {
     const dataSource = [...this.state.dataSource];
     let a = dataSource.findIndex(r => r.id === this.state.deleteToken);
     dataSource.splice(a, 1);
-    this.setState({ dataSource, deleteModal: false });
+    this.setState({ dataSource, deleteModal: false,deleteToken:"" });
   };
 
   render() {

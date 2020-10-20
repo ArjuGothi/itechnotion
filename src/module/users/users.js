@@ -53,11 +53,10 @@ class UserWrapper extends Component {
       }
     }
     this.setState({ visible: false });
-    console.log(this.state.dataSource);
   };
 
   handleCancel = () => {
-    this.setState({ visible: false });
+    this.setState({ visible: false, singleData:{} });
   };
 
   handleAdd = (type, data) => {
@@ -87,12 +86,11 @@ class UserWrapper extends Component {
     const dataSource = [...this.state.dataSource];
     let a = dataSource.findIndex(r => r.id === this.state.deleteToken);
     dataSource.splice(a, 1);
-    this.setState({ dataSource, deleteModal: false });
+    this.setState({ dataSource, deleteModal: false,deleteToken:'' });
   };
 
   render() {
     const { dataSource, singleData } = this.state;
-    console.log(dataSource);
     return (
       <UsersWrapper>
         <div>
